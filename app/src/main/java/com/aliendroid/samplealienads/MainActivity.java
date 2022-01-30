@@ -2,6 +2,7 @@ package com.aliendroid.samplealienads;
 
 import static com.aliendroid.samplealienads.SettingAds.ADMOB_BANNER;
 import static com.aliendroid.samplealienads.SettingAds.ADMOB_INTER;
+import static com.aliendroid.samplealienads.SettingAds.ADMOB_REWARD;
 import static com.aliendroid.samplealienads.SettingAds.BACKUP_ADS;
 import static com.aliendroid.samplealienads.SettingAds.BACKUP_ADS_BANNER;
 import static com.aliendroid.samplealienads.SettingAds.BACKUP_ADS_INTERTITIAL;
@@ -50,7 +51,7 @@ import com.aliendroid.alienads.AliendroidNative;
 import com.aliendroid.alienads.AliendroidReward;
 
 public class MainActivity extends AppCompatActivity {
-    private String BACKUP_NATIVE, BACKUP_INTERS, BACKUP_BANNER;
+    private String BACKUP_NATIVE, BACKUP_INTERS, BACKUP_BANNER,BACKUP_REWARD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             case "ADMOB":
                 BACKUP_BANNER = ADMOB_BANNER;
                 BACKUP_INTERS = ADMOB_INTER;
+                BACKUP_REWARD = ADMOB_REWARD;
                 break;
             case "APPLOVIN-M":
                 BACKUP_BANNER = MAX_BANNER;
@@ -113,12 +115,6 @@ public class MainActivity extends AppCompatActivity {
                 AliendroidBanner.SmallBannerApplovinDis(MainActivity.this, layAds, BACKUP_ADS, MAIN_ADS_BANNER, BACKUP_ADS_BANNER);
                 AliendroidIntertitial.LoadIntertitialApplovinDis(MainActivity.this, BACKUP_ADS, MAIN_ADS_INTERTITIAL, BACKUP_ADS_INTERTITIAL);
                 break;
-            case "MOPUB":
-                AliendroidBanner.SmallBannerMopub(MainActivity.this, layAds, BACKUP_ADS, MAIN_ADS_BANNER, BACKUP_ADS_BANNER);
-                AliendroidIntertitial.LoadIntertitialMopub(MainActivity.this, BACKUP_ADS, MAIN_ADS_INTERTITIAL, BACKUP_ADS_INTERTITIAL);
-                AliendroidInitialize.SelectAdsMopub(MainActivity.this, BACKUP_ADS, INITIALIZE_SDK, INITIALIZE_SDK_BACKUPADS);
-                AliendroidReward.LoadRewardMopub(MainActivity.this, BACKUP_ADS, MAIN_ADS_REWARDS, BACKUP_ADS_REWARDS);
-                break;
             case "STARTAPP":
                 AliendroidBanner.SmallBannerStartApp(MainActivity.this, layAds, BACKUP_ADS, MAIN_ADS_BANNER, BACKUP_ADS_BANNER);
                 AliendroidIntertitial.LoadIntertitialStartApp(MainActivity.this, BACKUP_ADS, MAIN_ADS_INTERTITIAL, BACKUP_ADS_INTERTITIAL);
@@ -142,7 +138,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "UNITY":
                 AliendroidInitialize.SelectAdsUnity(MainActivity.this, BACKUP_ADS, UNITY_GAME_ID, "");
-                AliendroidBanner.SmallBannerUnity(MainActivity.this, layAds, BACKUP_ADS, UNITY_BANNER, BACKUP_BANNER);
+                AliendroidBanner.SmallBannerUnity(MainActivity.this, layAds, BACKUP_ADS, "", BACKUP_BANNER);
+                AliendroidIntertitial.LoadIntertitialUnity(MainActivity.this,BACKUP_ADS,UNITY_INTERSTITIAL,BACKUP_INTERS);
+                AliendroidReward.LoadRewardUnity(MainActivity.this,BACKUP_ADS,UNITY_REWARD,BACKUP_REWARD);
                 break;
 
         }
@@ -163,9 +161,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "IRON":
                 AliendroidIntertitial.ShowIntertitialIron(MainActivity.this, BACKUP_ADS, MAIN_ADS_INTERTITIAL, BACKUP_INTERS, INTERVAL);
-                break;
-            case "MOPUB":
-                AliendroidIntertitial.ShowIntertitialMopub(MainActivity.this, BACKUP_ADS, MAIN_ADS_INTERTITIAL, BACKUP_INTERS, INTERVAL);
                 break;
             case "STARTAPP":
                 AliendroidIntertitial.ShowIntertitialSartApp(MainActivity.this, BACKUP_ADS, MAIN_ADS_INTERTITIAL, BACKUP_INTERS, INTERVAL);
@@ -191,9 +186,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "APPLOVIN-M":
                 AliendroidReward.ShowRewardApplovinMax(MainActivity.this, BACKUP_ADS, MAIN_ADS_REWARDS, BACKUP_ADS_REWARDS);
-                break;
-            case "MOPUB":
-                AliendroidReward.ShowRewardMopub(MainActivity.this, BACKUP_ADS, MAIN_ADS_REWARDS, BACKUP_ADS_REWARDS);
                 break;
             case "GOOGLE-ADS":
                 AliendroidReward.ShowRewardGoogleAds(MainActivity.this, BACKUP_ADS, MAIN_ADS_REWARDS, BACKUP_ADS_REWARDS);

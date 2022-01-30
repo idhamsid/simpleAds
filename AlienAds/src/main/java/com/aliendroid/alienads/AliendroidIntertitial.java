@@ -38,6 +38,10 @@ import com.unity3d.ads.IUnityAdsLoadListener;
 import com.unity3d.ads.IUnityAdsShowListener;
 import com.unity3d.ads.UnityAds;
 import com.unity3d.ads.UnityAdsShowOptions;
+import com.unity3d.mediation.IInterstitialAdLoadListener;
+import com.unity3d.mediation.IInterstitialAdShowListener;
+import com.unity3d.mediation.errors.LoadError;
+import com.unity3d.mediation.errors.ShowError;
 
 public class AliendroidIntertitial {
     public static InterstitialAd mInterstitialAd;
@@ -49,21 +53,26 @@ public class AliendroidIntertitial {
     public static AppLovinAd loadedAd;
     public static boolean irininter = false;
     private static StartAppAd startAppAd;
-
+    public static com.unity3d.mediation.InterstitialAd uinterstitialAd;
     public static void LoadIntertitialUnity(Activity activity, String selectBackupAds, String idIntertitial, String idBackupIntertitial) {
-        UnityAds.load(idIntertitial, new IUnityAdsLoadListener() {
-            @Override
-            public void onUnityAdsAdLoaded(String s) {
-                Log.i("adslog", "onUnityAdsAdLoaded: ");
+         uinterstitialAd = new com.unity3d.mediation.InterstitialAd(activity, idIntertitial);
 
+// Implement a load listener interface:
+        final IInterstitialAdLoadListener loadListener = new IInterstitialAdLoadListener() {
+            @Override
+            public void onInterstitialLoaded(com.unity3d.mediation.InterstitialAd ad) {
+                // Execute logic when the ad successfully loads.
+                Log.i("adslog", "onInterstitialLoaded: unity");
             }
 
             @Override
-            public void onUnityAdsFailedToLoad(String s, UnityAds.UnityAdsLoadError unityAdsLoadError, String s1) {
-                Log.i("adslog", "onUnityAdsFailedToLoad: "+unityAdsLoadError.toString());
-
+            public void onInterstitialFailedLoad(com.unity3d.mediation.InterstitialAd ad, LoadError error, String msg) {
+                // Execute logic when the ad fails to load.
+                Log.i("adslog", "onInterstitialFailedLoad: unity "+error+" msg "+msg);
             }
-        });
+        };
+
+        uinterstitialAd.load(loadListener);
         switch (selectBackupAds) {
             case "ADMOB":
                 Bundle extrasApplovin = new AppLovinExtras.Builder()
@@ -228,6 +237,22 @@ public class AliendroidIntertitial {
                 FBinterstitialAd = new com.facebook.ads.InterstitialAd(activity, idIntertitialBackup);
                 FBinterstitialAd.loadAd();
                 break;
+            case "UNITY":
+                uinterstitialAd = new com.unity3d.mediation.InterstitialAd(activity, idIntertitialBackup);
+
+// Implement a load listener interface:
+                final IInterstitialAdLoadListener loadListener = new IInterstitialAdLoadListener() {
+                    @Override
+                    public void onInterstitialLoaded(com.unity3d.mediation.InterstitialAd ad) {
+                        // Execute logic when the ad successfully loads.
+                    }
+
+                    @Override
+                    public void onInterstitialFailedLoad(com.unity3d.mediation.InterstitialAd ad, LoadError error, String msg) {
+                        // Execute logic when the ad fails to load.
+                    }
+                };
+                break;
 
         }
     }
@@ -297,6 +322,22 @@ public class AliendroidIntertitial {
             case "FACEBOOK":
                 FBinterstitialAd = new com.facebook.ads.InterstitialAd(activity, idIntertitialBackup);
                 FBinterstitialAd.loadAd();
+                break;
+            case "UNITY":
+                uinterstitialAd = new com.unity3d.mediation.InterstitialAd(activity, idIntertitialBackup);
+
+// Implement a load listener interface:
+                final IInterstitialAdLoadListener loadListener = new IInterstitialAdLoadListener() {
+                    @Override
+                    public void onInterstitialLoaded(com.unity3d.mediation.InterstitialAd ad) {
+                        // Execute logic when the ad successfully loads.
+                    }
+
+                    @Override
+                    public void onInterstitialFailedLoad(com.unity3d.mediation.InterstitialAd ad, LoadError error, String msg) {
+                        // Execute logic when the ad fails to load.
+                    }
+                };
                 break;
 
         }
@@ -398,7 +439,22 @@ public class AliendroidIntertitial {
                         });
 
                 break;
+            case "UNITY":
+                uinterstitialAd = new com.unity3d.mediation.InterstitialAd(activity, idIntertitialBackup);
 
+// Implement a load listener interface:
+                final IInterstitialAdLoadListener loadListener = new IInterstitialAdLoadListener() {
+                    @Override
+                    public void onInterstitialLoaded(com.unity3d.mediation.InterstitialAd ad) {
+                        // Execute logic when the ad successfully loads.
+                    }
+
+                    @Override
+                    public void onInterstitialFailedLoad(com.unity3d.mediation.InterstitialAd ad, LoadError error, String msg) {
+                        // Execute logic when the ad fails to load.
+                    }
+                };
+                break;
         }
     }
 
@@ -493,7 +549,22 @@ public class AliendroidIntertitial {
                         });
 
                 break;
+            case "UNITY":
+                uinterstitialAd = new com.unity3d.mediation.InterstitialAd(activity, idIntertitialBackup);
 
+// Implement a load listener interface:
+                final IInterstitialAdLoadListener loadListener = new IInterstitialAdLoadListener() {
+                    @Override
+                    public void onInterstitialLoaded(com.unity3d.mediation.InterstitialAd ad) {
+                        // Execute logic when the ad successfully loads.
+                    }
+
+                    @Override
+                    public void onInterstitialFailedLoad(com.unity3d.mediation.InterstitialAd ad, LoadError error, String msg) {
+                        // Execute logic when the ad fails to load.
+                    }
+                };
+                break;
         }
     }
 
@@ -591,7 +662,22 @@ public class AliendroidIntertitial {
                         });
 
                 break;
+            case "UNITY":
+                uinterstitialAd = new com.unity3d.mediation.InterstitialAd(activity, idIntertitialBackup);
 
+// Implement a load listener interface:
+                final IInterstitialAdLoadListener loadListener = new IInterstitialAdLoadListener() {
+                    @Override
+                    public void onInterstitialLoaded(com.unity3d.mediation.InterstitialAd ad) {
+                        // Execute logic when the ad successfully loads.
+                    }
+
+                    @Override
+                    public void onInterstitialFailedLoad(com.unity3d.mediation.InterstitialAd ad, LoadError error, String msg) {
+                        // Execute logic when the ad fails to load.
+                    }
+                };
+                break;
         }
     }
 
@@ -684,7 +770,22 @@ public class AliendroidIntertitial {
                 FBinterstitialAd = new com.facebook.ads.InterstitialAd(activity, idIntertitialBackup);
                 FBinterstitialAd.loadAd();
                 break;
+            case "UNITY":
+                uinterstitialAd = new com.unity3d.mediation.InterstitialAd(activity, idIntertitialBackup);
 
+// Implement a load listener interface:
+                final IInterstitialAdLoadListener loadListener = new IInterstitialAdLoadListener() {
+                    @Override
+                    public void onInterstitialLoaded(com.unity3d.mediation.InterstitialAd ad) {
+                        // Execute logic when the ad successfully loads.
+                    }
+
+                    @Override
+                    public void onInterstitialFailedLoad(com.unity3d.mediation.InterstitialAd ad, LoadError error, String msg) {
+                        // Execute logic when the ad fails to load.
+                    }
+                };
+                break;
 
         }
     }
@@ -832,11 +933,23 @@ public class AliendroidIntertitial {
                 FBinterstitialAd = new com.facebook.ads.InterstitialAd(activity, idIntertitialBackup);
                 FBinterstitialAd.loadAd();
                 break;
+            case "UNITY":
+                uinterstitialAd = new com.unity3d.mediation.InterstitialAd(activity, idIntertitialBackup);
 
+// Implement a load listener interface:
+                final IInterstitialAdLoadListener loadListener = new IInterstitialAdLoadListener() {
+                    @Override
+                    public void onInterstitialLoaded(com.unity3d.mediation.InterstitialAd ad) {
+                        // Execute logic when the ad successfully loads.
+                    }
+
+                    @Override
+                    public void onInterstitialFailedLoad(com.unity3d.mediation.InterstitialAd ad, LoadError error, String msg) {
+                        // Execute logic when the ad fails to load.
+                    }
+                };
+                break;
         }
-    }
-
-    public static void LoadIntertitialMopub(Activity activity, String selectAdsBackup, String idIntertitial, String idIntertitialBackup) {
     }
 
     public static void LoadIntertitialStartApp(Activity activity, String selectAdsBackup, String idIntertitial, String idIntertitialBackup) {
@@ -908,9 +1021,6 @@ public class AliendroidIntertitial {
                             }
                         });
                 break;
-            case "MOPUB":
-
-                break;
             case "FACEBOOK":
                 FBinterstitialAd = new com.facebook.ads.InterstitialAd(activity, idIntertitialBackup);
                 FBinterstitialAd.loadAd();
@@ -939,7 +1049,22 @@ public class AliendroidIntertitial {
                         });
 
                 break;
+            case "UNITY":
+                uinterstitialAd = new com.unity3d.mediation.InterstitialAd(activity, idIntertitialBackup);
 
+// Implement a load listener interface:
+                final IInterstitialAdLoadListener loadListener = new IInterstitialAdLoadListener() {
+                    @Override
+                    public void onInterstitialLoaded(com.unity3d.mediation.InterstitialAd ad) {
+                        // Execute logic when the ad successfully loads.
+                    }
+
+                    @Override
+                    public void onInterstitialFailedLoad(com.unity3d.mediation.InterstitialAd ad, LoadError error, String msg) {
+                        // Execute logic when the ad fails to load.
+                    }
+                };
+                break;
         }
     }
 
@@ -981,7 +1106,28 @@ public class AliendroidIntertitial {
                         }
                         break;
                     case "UNITY":
-                        UnityAds.show(activity, idIntertitialBackup);
+                        uinterstitialAd.show(new IInterstitialAdShowListener() {
+                            @Override
+                            public void onInterstitialShowed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialClicked(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialClosed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialFailedShow(com.unity3d.mediation.InterstitialAd interstitialAd, ShowError showError, String s) {
+                                LoadIntertitialUnity(activity, selectAdsBackup, idIntertitial, idIntertitialBackup);
+                            }
+                        });
+                        LoadIntertitialUnity(activity, selectAdsBackup, idIntertitialBackup, idIntertitialBackup);
                         break;
                 }
                 LoadIntertitialAdmob(activity, selectAdsBackup, idIntertitial, idIntertitialBackup, Hpk1, Hpk2, Hpk3, Hpk4, Hpk5);
@@ -1030,7 +1176,28 @@ public class AliendroidIntertitial {
                         }
                         break;
                     case "UNITY":
-                        UnityAds.show(activity, idIntertitialBackup);
+                        uinterstitialAd.show(new IInterstitialAdShowListener() {
+                            @Override
+                            public void onInterstitialShowed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialClicked(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialClosed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialFailedShow(com.unity3d.mediation.InterstitialAd interstitialAd, ShowError showError, String s) {
+                                LoadIntertitialUnity(activity, selectAdsBackup, idIntertitial, idIntertitialBackup);
+                            }
+                        });
+                        LoadIntertitialUnity(activity, selectAdsBackup, idIntertitialBackup, idIntertitialBackup);
                         break;
                 }
                 LoadIntertitialGoogleAds(activity, selectAdsBackup, idIntertitial, idIntertitialBackup);
@@ -1087,7 +1254,28 @@ public class AliendroidIntertitial {
                             }
                             break;
                         case "UNITY":
-                            UnityAds.show(activity, idIntertitialBackup);
+                            uinterstitialAd.show(new IInterstitialAdShowListener() {
+                                @Override
+                                public void onInterstitialShowed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                                }
+
+                                @Override
+                                public void onInterstitialClicked(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                                }
+
+                                @Override
+                                public void onInterstitialClosed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                                }
+
+                                @Override
+                                public void onInterstitialFailedShow(com.unity3d.mediation.InterstitialAd interstitialAd, ShowError showError, String s) {
+                                    LoadIntertitialUnity(activity, selectAdsBackup, idIntertitial, idIntertitialBackup);
+                                }
+                            });
+                            LoadIntertitialUnity(activity, selectAdsBackup, idIntertitialBackup, idIntertitialBackup);
                             break;
                     }
                     LoadIntertitialApplovinDis(activity, selectAdsBackup, idIntertitial, idIntertitialBackup);
@@ -1151,7 +1339,28 @@ public class AliendroidIntertitial {
                                 }
                                 break;
                             case "UNITY":
-                                UnityAds.show(activity, idIntertitialBackup);
+                                uinterstitialAd.show(new IInterstitialAdShowListener() {
+                                    @Override
+                                    public void onInterstitialShowed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                                    }
+
+                                    @Override
+                                    public void onInterstitialClicked(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                                    }
+
+                                    @Override
+                                    public void onInterstitialClosed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                                    }
+
+                                    @Override
+                                    public void onInterstitialFailedShow(com.unity3d.mediation.InterstitialAd interstitialAd, ShowError showError, String s) {
+                                        LoadIntertitialUnity(activity, selectAdsBackup, idIntertitial, idIntertitialBackup);
+                                    }
+                                });
+                                LoadIntertitialUnity(activity, selectAdsBackup, idIntertitialBackup, idIntertitialBackup);
                                 break;
                         }
                         LoadIntertitialApplovinDisHPK(activity, selectAdsBackup, idIntertitial, idIntertitialBackup, HPK1,
@@ -1210,7 +1419,28 @@ public class AliendroidIntertitial {
                         }
                         break;
                     case "UNITY":
-                        UnityAds.show(activity, idIntertitialBackup);
+                        uinterstitialAd.show(new IInterstitialAdShowListener() {
+                            @Override
+                            public void onInterstitialShowed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialClicked(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialClosed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialFailedShow(com.unity3d.mediation.InterstitialAd interstitialAd, ShowError showError, String s) {
+                                LoadIntertitialUnity(activity, selectAdsBackup, idIntertitial, idIntertitialBackup);
+                            }
+                        });
+                        LoadIntertitialUnity(activity, selectAdsBackup, idIntertitialBackup, idIntertitialBackup);
                         break;
                 }
                 LoadIntertitialApplovinMax(activity, selectAdsBackup, idIntertitial, idIntertitialBackup);
@@ -1262,7 +1492,28 @@ public class AliendroidIntertitial {
                         }
                         break;
                     case "UNITY":
-                        UnityAds.show(activity, idIntertitialBackup);
+                        uinterstitialAd.show(new IInterstitialAdShowListener() {
+                            @Override
+                            public void onInterstitialShowed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialClicked(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialClosed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialFailedShow(com.unity3d.mediation.InterstitialAd interstitialAd, ShowError showError, String s) {
+                                LoadIntertitialUnity(activity, selectAdsBackup, idIntertitial, idIntertitialBackup);
+                            }
+                        });
+                        LoadIntertitialUnity(activity, selectAdsBackup, idIntertitialBackup, idIntertitialBackup);
                         break;
                 }
             } else {
@@ -1274,11 +1525,6 @@ public class AliendroidIntertitial {
         } else {
             counter++;
         }
-
-    }
-
-    public static void ShowIntertitialMopub(Activity activity, String selectAdsBackup, String idIntertitial, String idIntertitialBackup,
-                                            int interval) {
 
     }
 
@@ -1335,7 +1581,28 @@ public class AliendroidIntertitial {
                             }
                             break;
                         case "UNITY":
-                            UnityAds.show(activity, idIntertitialBackup);
+                            uinterstitialAd.show(new IInterstitialAdShowListener() {
+                                @Override
+                                public void onInterstitialShowed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                                }
+
+                                @Override
+                                public void onInterstitialClicked(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                                }
+
+                                @Override
+                                public void onInterstitialClosed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                                }
+
+                                @Override
+                                public void onInterstitialFailedShow(com.unity3d.mediation.InterstitialAd interstitialAd, ShowError showError, String s) {
+                                    LoadIntertitialUnity(activity, selectAdsBackup, idIntertitial, idIntertitialBackup);
+                                }
+                            });
+                            LoadIntertitialUnity(activity, selectAdsBackup, idIntertitialBackup, idIntertitialBackup);
                             break;
                     }
                 }
@@ -1388,7 +1655,28 @@ public class AliendroidIntertitial {
                         }
                         break;
                     case "UNITY":
-                        UnityAds.show(activity, idIntertitialBackup);
+                        uinterstitialAd.show(new IInterstitialAdShowListener() {
+                            @Override
+                            public void onInterstitialShowed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialClicked(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialClosed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                            }
+
+                            @Override
+                            public void onInterstitialFailedShow(com.unity3d.mediation.InterstitialAd interstitialAd, ShowError showError, String s) {
+                                LoadIntertitialUnity(activity, selectAdsBackup, idIntertitial, idIntertitialBackup);
+                            }
+                        });
+                        LoadIntertitialUnity(activity, selectAdsBackup, idIntertitialBackup, idIntertitialBackup);
                         break;
                 }
                 LoadIntertitialFAN(activity, selectAdsBackup, idIntertitial, idIntertitialBackup);
@@ -1405,65 +1693,26 @@ public class AliendroidIntertitial {
     public static void ShowIntertitialUnity(Activity activity, String selectAdsBackup, String idIntertitial, String idIntertitialBackup,
                                             int interval) {
         if (counter >= interval) {
-            UnityAds.show(activity, idIntertitial, new UnityAdsShowOptions(), new IUnityAdsShowListener() {
+            uinterstitialAd.show(new IInterstitialAdShowListener() {
                 @Override
-                public void onUnityAdsShowFailure(String placementId, UnityAds.UnityAdsShowError error, String message) {
-                    Log.i("adslog", "onUnityAdsShowFailure: " + error.toString() + " message " + message);
-                    switch (selectAdsBackup) {
-                        case "APPLOVIN-M":
-                            if (interstitialAd.isReady()) {
-                                interstitialAd.showAd();
-                                interstitialAd.loadAd();
-                            } else {
-                                interstitialAd.loadAd();
-                            }
-                            break;
-                        case "MOPUB":
-
-                            break;
-                        case "IRON":
-                            IronSource.showInterstitial(idIntertitialBackup);
-                            break;
-                        case "STARTAPP":
-                            StartAppAd.showAd(activity);
-                            break;
-                        case "APPLOVIN-D":
-                            if (interstitialAdlovin != null) {
-                                interstitialAdlovin.showAndRender(loadedAd);
-                            }
-                            break;
-                        case "ADMOB":
-                            if (mInterstitialAd != null) {
-                                mInterstitialAd.show(activity);
-                            }
-                            break;
-                        case "GOOGLE-ADS":
-                            if (mAdManagerInterstitialAd != null) {
-                                mAdManagerInterstitialAd.show(activity);
-                            }
-                            break;
-                        case "FACEBOOK":
-                            if (FBinterstitialAd == null || !FBinterstitialAd.isAdLoaded()) {
-                            } else {
-                                FBinterstitialAd.show();
-                            }
-                            break;
-
-                    }
-                }
-
-                @Override
-                public void onUnityAdsShowStart(String placementId) {
+                public void onInterstitialShowed(com.unity3d.mediation.InterstitialAd interstitialAd) {
 
                 }
 
                 @Override
-                public void onUnityAdsShowClick(String placementId) {
+                public void onInterstitialClicked(com.unity3d.mediation.InterstitialAd interstitialAd) {
 
                 }
 
                 @Override
-                public void onUnityAdsShowComplete(String placementId, UnityAds.UnityAdsShowCompletionState state) {
+                public void onInterstitialClosed(com.unity3d.mediation.InterstitialAd interstitialAd) {
+
+                }
+
+                @Override
+                public void onInterstitialFailedShow(com.unity3d.mediation.InterstitialAd interstitialAd, ShowError showError, String s) {
+                    Log.i("adslog", "onInterstitialFailedShow: unity "+showError+" msg "+s);
+                    LoadIntertitialUnity(activity, selectAdsBackup, idIntertitial, idIntertitialBackup);
 
                 }
             });

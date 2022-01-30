@@ -1,8 +1,8 @@
 package com.aliendroid.samplealienads;
 
 public class SettingAds {
-    public static String SELECT_ADS = "UNITY";
-    public static String BACKUP_ADS = "APPLOVIN-M";
+    public static String SELECT_ADS = "APPLOVIN-M";
+    public static String BACKUP_ADS = "UNITY";
 
     public static String MAIN_ADS_BANNER = "ca-app-pub-3940256099942544/6300978111x";
     public static String BACKUP_ADS_BANNER = "DefaultBanner";
@@ -30,8 +30,9 @@ public class SettingAds {
     public static String ADMOB_INTER = "ca-app-pub-3940256099942544/1033173712";
     public static String ADMOB_BANNER = "ca-app-pub-3940256099942544/6300978111";
     public static String ADMOB_OPEN = "ca-app-pub-3940256099942544/3419835294";
+    public static String ADMOB_REWARD = "ca-app-pub-3940256099942544/5224354917";
 
-    public static String UNITY_GAME_ID = "3916229";
+    public static String UNITY_GAME_ID = "2907410";
     public static String UNITY_BANNER = "banner";
     public static String UNITY_INTERSTITIAL = "Android_Interstitial";
     public static String UNITY_REWARD = "Android_Rewarded";
