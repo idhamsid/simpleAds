@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AlienMultyAds.iml" filepath="$PROJECT_DIR$/.idea/modules/AlienMultyAds.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AlienAds/AlienMultyAds.AlienAds.iml" filepath="$PROJECT_DIR$/.idea/modules/AlienAds/AlienMultyAds.AlienAds.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AlienMultyAds.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AlienMultyAds.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unity-ads/AlienMultyAds.unity-ads.iml" filepath="$PROJECT_DIR$/.idea/modules/unity-ads/AlienMultyAds.unity-ads.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/multyAds.iml" filepath="$PROJECT_DIR$/.idea/modules/multyAds.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AlienAds/multyAds.AlienAds.iml" filepath="$PROJECT_DIR$/.idea/modules/AlienAds/multyAds.AlienAds.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/multyAds.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/multyAds.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unity-ads/multyAds.unity-ads.iml" filepath="$PROJECT_DIR$/.idea/modules/unity-ads/multyAds.unity-ads.iml" />
     </modules>
   </component>
 </project>

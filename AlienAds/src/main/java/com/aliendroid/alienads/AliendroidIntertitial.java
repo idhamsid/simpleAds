@@ -34,6 +34,7 @@ import com.startapp.sdk.adsbase.Ad;
 import com.startapp.sdk.adsbase.StartAppAd;
 import com.startapp.sdk.adsbase.adlisteners.AdDisplayListener;
 import com.startapp.sdk.adsbase.adlisteners.AdEventListener;
+import com.unity3d.ads.IUnityAdsLoadListener;
 import com.unity3d.ads.IUnityAdsShowListener;
 import com.unity3d.ads.UnityAds;
 import com.unity3d.ads.UnityAdsShowOptions;
@@ -49,8 +50,21 @@ public class AliendroidIntertitial {
     public static boolean irininter = false;
     private static StartAppAd startAppAd;
 
-    public static void LoadIntertitialUnity(Activity activity, String selectAds, String idIntertitial, String idBackupIntertitial) {
-        switch (selectAds) {
+    public static void LoadIntertitialUnity(Activity activity, String selectBackupAds, String idIntertitial, String idBackupIntertitial) {
+        UnityAds.load(idIntertitial, new IUnityAdsLoadListener() {
+            @Override
+            public void onUnityAdsAdLoaded(String s) {
+                Log.i("adslog", "onUnityAdsAdLoaded: ");
+
+            }
+
+            @Override
+            public void onUnityAdsFailedToLoad(String s, UnityAds.UnityAdsLoadError unityAdsLoadError, String s1) {
+                Log.i("adslog", "onUnityAdsFailedToLoad: "+unityAdsLoadError.toString());
+
+            }
+        });
+        switch (selectBackupAds) {
             case "ADMOB":
                 Bundle extrasApplovin = new AppLovinExtras.Builder()
                         .setMuteAudio(true)

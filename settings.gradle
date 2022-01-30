@@ -1,4 +1,4 @@
-rootProject.name = "AlienMultyAds"
+rootProject.name = "multyAds"
 include ':app'
 include ':AlienAds'
 include ':unity-ads'
