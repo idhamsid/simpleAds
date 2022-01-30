@@ -1,0 +1,4 @@
+rootProject.name = "AlienMultyAds"
+include ':app'
+include ':AlienAds'
+include ':unity-ads'

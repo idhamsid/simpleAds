@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: artifacts:unity-ads:unspecified">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/unity-ads/build/.transforms/7ab07bba1b54d65e6a92b6643b9ca041/jetified-unity-ads/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/unity-ads/build/.transforms/7ab07bba1b54d65e6a92b6643b9ca041/jetified-unity-ads/jars/libs/unity-scaradapter-1920.jar!/" />
+      <root url="jar://$PROJECT_DIR$/unity-ads/build/.transforms/7ab07bba1b54d65e6a92b6643b9ca041/jetified-unity-ads/jars/libs/unity-scaradapter-1950.jar!/" />
+      <root url="jar://$PROJECT_DIR$/unity-ads/build/.transforms/7ab07bba1b54d65e6a92b6643b9ca041/jetified-unity-ads/jars/libs/unity-scaradapter-2000.jar!/" />
+      <root url="jar://$PROJECT_DIR$/unity-ads/build/.transforms/7ab07bba1b54d65e6a92b6643b9ca041/jetified-unity-ads/jars/libs/unity-scaradapter-common.jar!/" />
+      <root url="file://$PROJECT_DIR$/unity-ads/build/.transforms/7ab07bba1b54d65e6a92b6643b9ca041/jetified-unity-ads/res" />
+      <root url="file://$PROJECT_DIR$/unity-ads/build/.transforms/7ab07bba1b54d65e6a92b6643b9ca041/jetified-unity-ads/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
