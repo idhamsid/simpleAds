@@ -1,8 +1,8 @@
 package com.aliendroid.samplealienads;
 
 public class SettingAds {
-    public static String SELECT_ADS = "APPLOVIN-M";
-    public static String BACKUP_ADS = "UNITY";
+    public static String SELECT_ADS = "ADMOB";
+    public static String BACKUP_ADS = "APPLOVIN-M";
 
     public static String MAIN_ADS_BANNER = "ca-app-pub-3940256099942544/6300978111x";
     public static String BACKUP_ADS_BANNER = "DefaultBanner";
@@ -14,7 +14,7 @@ public class SettingAds {
     public static String BACKUP_ADS_REWARDS = "DefaultRewardedVideo";
 
     public static String OPEN_ADS_ADMOB = "ca-app-pub-3940256099942544/3419835294x";
-    public static String NATIVE_ADS_ADMOB = "/6499/example/native";
+    public static String NATIVE_ADS_ADMOB = "ca-app-pub-3940256099942544/2247696110xx";
     public static String INITIALIZE_SDK = "1234567";
     public static String INITIALIZE_SDK_BACKUPADS = "107355779";
 
